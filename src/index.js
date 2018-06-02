@@ -14,7 +14,6 @@ const history = createHistory();
 const newStore = createReduxStore();
 
 const renderApp = (Component) => {
-  console.log('histroy', history);
   ReactDOM.render(
     <Provider store={newStore}>
       <ConnectedRouter history={history}>

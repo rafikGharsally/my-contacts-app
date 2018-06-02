@@ -1,0 +1,14 @@
+{
+  "name": "my-contacts-app-api",
+  "version": "1.0.0",
+  "description": "app side for contacts client",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Rafik gharsalli",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
