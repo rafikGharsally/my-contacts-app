@@ -1,8 +1,6 @@
 var express = require('express');
-
-var app = express();
-
 var fakeContacts = require('./data/fakeContacts');
+var app = express();
 
 
 app.set('port', (process.env.PORT || 3001));
@@ -11,6 +9,7 @@ app.set('port', (process.env.PORT || 3001));
 // and maybe use mongoose schema model for the response coming from the server
 
 function getContacts(req, res) {
+  console.log('i am here');
   return res.json(fakeContacts);
 }
 
