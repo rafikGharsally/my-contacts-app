@@ -1,6 +1,8 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import createHistory from 'history/createBrowserHistory';
 import { routerMiddleware } from 'react-router-redux';
+import axios from 'axios';
+import axiosMiddleware from 'redux-axios-middleware';
 import thunk from 'redux-thunk';
 import rootReducer from '../reducers'
 
@@ -11,6 +13,13 @@ const createReduxStore = () => {
   // intercept and dispatch action here
   const middleware = routerMiddleware(history);
 
+  const client = axios.create();
+
+  const clientOptions = {
+    returnRejectedPromiseOnError: true,
+    errorSuffix: '_ERROR',
+  };
+
   // Add the reducer to your store on the `router` key
   // Also apply our middleware for navigating
   const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -19,7 +28,7 @@ const createReduxStore = () => {
     rootReducer,
     // initialState
     {},
-    composeEnhancers(applyMiddleware(middleware, thunk)
+    composeEnhancers(applyMiddleware(middleware, thunk, axiosMiddleware(client, clientOptions))
     ));
 
   if (process.env.NODE_ENV !== "production") {
