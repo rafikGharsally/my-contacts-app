@@ -1,7 +1,7 @@
 var express = require('express');
 var fakeContacts = require('./data/fakeContacts');
 var app = express();
-
+console.log('i am ehre...... ');
 
 app.set('port', (process.env.PORT || 3001));
 
@@ -13,7 +13,7 @@ function getContacts(req, res) {
   return res.json(fakeContacts);
 }
 
-app.get('/API/contacts', getContacts);
+app.get('/api/contacts', getContacts);
 
 
 app.listen(app.get('port'), function() {
