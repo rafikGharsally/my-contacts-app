@@ -3,6 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "proxy": "http://localhost:3001",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rafikGharsally/my-contacts-app.git"
+  },
   "dependencies": {
     "axios": "^0.18.0",
     "history": "^4.7.2",
