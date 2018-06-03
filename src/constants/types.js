@@ -1,7 +1,9 @@
-export const FETCH_USERS = 'FETCH_USERS';
+export const FETCH_CONTACTS = 'FETCH_CONTACTS';
+export const FETCH_CONTACTS_SUCCESS = 'FETCH_CONTACTS_SUCCESS';
+export const FETCH_CONTACTS_ERROR = 'FETCH_CONTACTS_ERROR';
 
-export const ADD_USER = 'ADD_USER';
+export const ADD_CONTACT = 'ADD_CONTACT';
 
-export const EDIT_USER = 'EDIT_USER';
+export const EDIT_CONTACT = 'EDIT_CONTACT';
 
-export const DELETE_USER = 'DELETE_USER';
+export const DELETE_CONTACT = 'DELETE_CONTACT';
