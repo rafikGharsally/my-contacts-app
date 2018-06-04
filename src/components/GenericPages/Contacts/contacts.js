@@ -41,7 +41,7 @@ class contacts extends Component {
               <td>{n.email}</td>
               <td>{n.phone}</td>
               <td>
-                <Button size="small" variant="contained" color="orange" className={classes.button} href={`/edit/${n.id}`}>
+                <Button size="small" variant="contained" className={classes.button} href={`/edit/${n.id}`}>
                   edit
                 </Button>
                 <Button variant="contained" color="secondary" className={classes.button} href={`/edit/${n.id}`}>
