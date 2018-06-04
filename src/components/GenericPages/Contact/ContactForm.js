@@ -66,11 +66,12 @@ class ContactForm extends Component {
 
   render () {
 
-    const { classes } = this.props;
+    const { classes, viewMode } = this.props;
     const { contact } = this.state;
     return (
       <form onSubmit={this.handleSubmit}>
         <TextField
+          disabled={viewMode}
           id="name"
           label="Name"
           name="name"
@@ -82,6 +83,7 @@ class ContactForm extends Component {
         />
 
         <TextField
+          disabled={viewMode}
           id="job_title"
           label="job_title"
           name="job_title"
@@ -92,6 +94,7 @@ class ContactForm extends Component {
           onChange={this.handleTextFieldChange}
         />
         <TextField
+          disabled={viewMode}
           id="address"
           label="address"
           name="address"
@@ -102,6 +105,7 @@ class ContactForm extends Component {
           onChange={this.handleTextFieldChange}
         />
         <TextField
+          disabled={viewMode}
           id="phone"
           label="phone"
           name="phone"
@@ -112,6 +116,7 @@ class ContactForm extends Component {
           onChange={this.handleTextFieldChange}
         />
         <TextField
+          disabled={viewMode}
           id="email"
           label="email"
           name="email"
@@ -121,11 +126,21 @@ class ContactForm extends Component {
           margin="normal"
           onChange={this.handleTextFieldChange}
         />
+        {!viewMode &&
+          <StyledButtonContainer>
+            <Button type="submit" variant="contained" color="primary" className={classes.button}>
+              Save
+            </Button>
+          </StyledButtonContainer>
+        }
+        {viewMode &&
         <StyledButtonContainer>
-          <Button type="submit" variant="contained" color="primary" className={classes.button}>
-            Save
+          <Button size="small" variant="contained" className={classes.button} href={`/edit/${contact.id}`}>
+            edit
           </Button>
         </StyledButtonContainer>
+        }
+
       </form>
 
     )
