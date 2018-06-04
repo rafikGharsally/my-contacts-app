@@ -11,7 +11,7 @@ class App extends Component {
         <Switch>
           <Route exact path="/" component={ContactsList} />
           <Route render={() => (
-            <h2>Page not found Error 404</h2>
+            <h2>Page Not Found Error 404</h2>
             )} />
         </Switch>
       </div>
