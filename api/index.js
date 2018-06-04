@@ -2,6 +2,8 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var path = require('path');
 var jsonfile = require('jsonfile');
+var _ = require('underscore');
+
 let file = path.join(__dirname, 'data/fakeContacts.json');
 var app = express();
 
@@ -18,6 +20,15 @@ app.set('port', (process.env.PORT || 3001));
 function getContacts(req, res) {
   jsonfile.readFile(file, function(err, obj) {
      return res.json(obj);
+  });
+}
+
+function getSingleContact(req, res) {
+
+  let id = req.params.id;
+  jsonfile.readFile(file, function(err, obj) {
+    let found = _.find(obj.contacts, function(num){ return parseInt(num.id, 10) === parseInt(id, 10); });
+    return res.json(found);
   });
 }
 
@@ -45,6 +56,7 @@ function addContact(req, res) {
 //my routes goes here
 app.get('/api/contacts', getContacts);
 app.post('/api/contacts', addContact);
+app.get('/api/contacts/:id', getSingleContact);
 
 
 app.listen(app.get('port'), function() {
