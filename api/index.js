@@ -1,7 +1,8 @@
 var express = require('express');
 var bodyParser = require('body-parser');
-var fakeContacts = require('./data/fakeContacts');
-
+var path = require('path');
+var jsonfile = require('jsonfile');
+let file = path.join(__dirname, 'data/fakeContacts.json');
 var app = express();
 
 // parse application/x-www-form-urlencoded
@@ -15,19 +16,34 @@ app.set('port', (process.env.PORT || 3001));
 // and maybe use mongoose schema model for the response coming from the server
 
 function getContacts(req, res) {
-  return res.json(fakeContacts);
+  jsonfile.readFile(file, function(err, obj) {
+     return res.json(obj);
+  });
 }
+
+//need refactor later
 function addContact(req, res) {
 
-  console.log('req',req);
+  let data = req.body;
+  jsonfile.readFile(file, function(err, obj) {
+    let len = obj.contacts.length;
+    data.id = ++len;
+    obj.contacts.push(data);
 
-  console.log('body',req.body);
-  //fs.writeFileSync('./data/fakeContacts', obj.join(',') , 'utf-8');
-  return res.json(200);
+    jsonfile.writeFile(file, obj,
+      function(success) {
+        return res.json(obj);
+      },
+      function (err) {
+        return res.json(500);
+    });
+
+  });
+
 }
 
+//my routes goes here
 app.get('/api/contacts', getContacts);
-
 app.post('/api/contacts', addContact);
 
 
