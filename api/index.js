@@ -1,6 +1,14 @@
 var express = require('express');
+var bodyParser = require('body-parser');
 var fakeContacts = require('./data/fakeContacts');
+
 var app = express();
+
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }));
+
+// parse application/json
+app.use(bodyParser.json());
 app.set('port', (process.env.PORT || 3001));
 
 // need to be moved to a controller later
@@ -10,7 +18,11 @@ function getContacts(req, res) {
   return res.json(fakeContacts);
 }
 function addContact(req, res) {
-  console.log('i am here');
+
+  console.log('req',req);
+
+  console.log('body',req.body);
+  //fs.writeFileSync('./data/fakeContacts', obj.join(',') , 'utf-8');
   return res.json(200);
 }
 
