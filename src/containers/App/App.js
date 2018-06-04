@@ -1,20 +1,44 @@
 import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import ContactsList from '../Contacts';
+import NewContact from '../NewContact';
+import Grid from '@material-ui/core/Grid';
+import Sidebar from '../Sidebar';
+
+
 
 import '../../App.css';
+
+const fullHeight = {
+  height: '100%',
+  position: 'relative'
+};
+
+
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <Switch>
-          <Route exact path="/" component={ContactsList} />
-          <Route render={() => (
-            <h2>Page Not Found Error 404</h2>
-            )} />
-        </Switch>
+
+      <div>
+        <Sidebar/>
+        <Grid  container className="App" justify="center" style={fullHeight}>
+
+          <Grid item xs={12} md={8} lg={6} style={fullHeight}>
+            <Switch>
+              <Route exact path="/" component={ContactsList} />
+              <Route exact path="/new" component={NewContact} />
+              <Route render={() => (
+                <h2>Page Not Found Error 404</h2>
+              )} />
+            </Switch>
+          </Grid>
+        </Grid>
+
+
+
       </div>
+
     );
   }
 }
