@@ -12,14 +12,39 @@ class EditContact extends Component {
     getContact(params.id);
   }
 
+  constructor(props) {
+    super(props);
+    this.submit = this.submit.bind(this);
+  }
+
+  submit(contact) {
+
+    console.log('c',contact);
+    const { modifyContact, history } = this.props;
+
+    modifyContact(contact).then(success => {
+      console.log('success contact updated---', success);
+      history.push('/');
+    }, error => {
+      console.log('error updating contact---', error);
+    })
+  }
+
   render() {
 
-    const { contact: { data } } = this.props;
+    const { contact, isFetching }  = this.props;
+
+    if (isFetching) {
+      return (
+        <div>loading ....</div>
+      );
+    }
+
     return (
 
       <AddContact title="Edit contact" previousState="/">
         <ContactForm
-          contact={data}
+          contact={contact}
           submitForm={this.submit}
         />
       </AddContact>
@@ -30,7 +55,8 @@ class EditContact extends Component {
 
 const mapStateToProps = state => {
   return {
-    contact: state.contact
+    isFetching: state.contact.isFetching,
+    contact: state.contact.data
   }
 };
 
