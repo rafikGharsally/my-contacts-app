@@ -77,11 +77,37 @@ function editContact(req, res) {
 
 }
 
+//need refactor later
+function deleteContact(req, res) {
+
+  let id = req.params.id;
+  jsonfile.readFile(file, function(err, obj) {
+
+    var filtered = _.filter(obj.contacts, function(arrItem) {
+      return parseInt(arrItem.id, 10) !== parseInt(id, 10);
+    });
+
+    obj.contacts = filtered;
+    jsonfile.writeFile(file, obj,
+      function(success) {
+        return res.json(obj);
+      },
+      function (err) {
+        return res.json(500);
+      });
+
+
+
+  });
+
+}
+
 //my routes goes here
 app.get('/api/contacts', getContacts);
 app.post('/api/contacts', addContact);
 app.get('/api/contacts/:id', getSingleContact);
 app.put('/api/contacts/:id', editContact);
+app.delete('/api/contacts/:id', deleteContact);
 
 
 app.listen(app.get('port'), function() {
