@@ -53,10 +53,35 @@ function addContact(req, res) {
 
 }
 
+//need refactor later
+function editContact(req, res) {
+
+  let id = req.params.id;
+  let data = req.body;
+
+  jsonfile.readFile(file, function(err, obj) {
+
+    let index = _.findIndex(obj.contacts, function (el) {
+        return parseInt(el.id, 10) === parseInt(id, 10)
+      });
+    obj.contacts.splice(index, 1, data);
+
+    jsonfile.writeFile(file, obj,
+      function(success) {
+        return res.json(obj);
+      },
+      function (err) {
+        return res.json(500);
+      });
+  });
+
+}
+
 //my routes goes here
 app.get('/api/contacts', getContacts);
 app.post('/api/contacts', addContact);
 app.get('/api/contacts/:id', getSingleContact);
+app.put('/api/contacts/:id', editContact);
 
 
 app.listen(app.get('port'), function() {
