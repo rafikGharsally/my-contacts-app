@@ -14,11 +14,11 @@ class NewContact extends Component {
   submit(contact) {
 
     console.log('c',contact);
-    const { addNewContact } = this.props;
+    const { addNewContact, history } = this.props;
 
    addNewContact(contact).then(success => {
-      console.log('!success added a new contact---', success)
-
+     console.log('!success added a new contact---', success)
+     history.push('/');
     }, error => {
       console.log('error adding a new contact---', error)
     })

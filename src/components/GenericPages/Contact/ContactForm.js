@@ -23,6 +23,7 @@ class ContactForm extends Component {
 
     this.state = {
       contact: {
+        id:'',
         name: (contact && contact.name) || '',
         address: (contact && contact.address) || '',
         job_title: (contact && contact.job_title) || '',

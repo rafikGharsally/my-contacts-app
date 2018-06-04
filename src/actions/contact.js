@@ -10,7 +10,7 @@ export const addNewContact = contact => {
   return function(dispatch) {
     return new Promise((resolve, reject) => {
       dispatch(addContact());
-      axios.post('/api/contacts', contact)
+      axios.post('/api/contacts', contact )
         .then(success => {
           dispatch(addContactSuccess(success.data));
           resolve(success.data);
