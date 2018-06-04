@@ -8,9 +8,11 @@
     "url": "https://github.com/rafikGharsally/my-contacts-app.git"
   },
   "dependencies": {
+    "@material-ui/core": "^1.2.0",
     "axios": "^0.18.0",
     "history": "^4.7.2",
     "material-ui": "^0.20.1",
+    "prop-types": "^15.6.1",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
     "react-redux": "^5.0.7",
