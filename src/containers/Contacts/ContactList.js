@@ -3,8 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { get } from 'axios';
 import { fetchContacts } from '../../actions/Contacts';
-
-
+import { contacts as GenericContacts  } from '../../components/GenericPages/Contacts';
 
 class ContactList extends Component {
 
@@ -15,16 +14,11 @@ class ContactList extends Component {
 
   render() {
     const { contacts } = this.props;
+
     const notFound = !contacts.data ||  contacts.data.length < 0;
     return (
       <div>
-        <h2>Contact List</h2>
-        { contacts.data && contacts.data.length > 0 && contacts.data.map((contact) => {
-          return (
-            <div key={contact.id}>{contact.name}</div>
-          )
-        })
-        }
+        <GenericContacts contacts={contacts} />
         { notFound &&
           <h3>no contacts to display...</h3>
         }
