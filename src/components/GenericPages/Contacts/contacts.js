@@ -1,10 +1,22 @@
 import React, { Component } from 'react';
+import Button from '@material-ui/core/Button';
+import { withStyles } from '@material-ui/core/styles';
 
+
+
+const styles = theme => ({
+  button: {
+    margin: theme.spacing.unit,
+  },
+  input: {
+    display: 'none',
+  },
+});
 class contacts extends Component {
 
   render () {
 
-  const { contacts } = this.props;
+  const { contacts, classes } = this.props;
 
   return (
     <div>
@@ -13,9 +25,10 @@ class contacts extends Component {
           <tr>
             <th>#</th>
             <th>Name</th>
+            <th>Job Title</th>
             <th>Email</th>
             <th>Phone</th>
-            <th>Funct</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -24,9 +37,18 @@ class contacts extends Component {
             <tr key={n.id}>
               <td>{n.id}</td>
               <td>{n.name}</td>
+              <td>{n.job_title}</td>
               <td>{n.email}</td>
               <td>{n.phone}</td>
-              <td>...buttons goes here</td>
+              <td>
+                <Button size="small" variant="contained" color="orange" className={classes.button} href={`/edit/${n.id}`}>
+                  edit
+                </Button>
+                <Button variant="contained" color="secondary" className={classes.button} href={`/edit/${n.id}`}>
+                  delete
+                </Button>
+
+              </td>
             </tr>
           )
 
@@ -45,5 +67,4 @@ class contacts extends Component {
 
 }
 
-
-export default contacts;
+export default withStyles(styles)(contacts);
