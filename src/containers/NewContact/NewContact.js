@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { AddContact, ContactForm } from '../../components/GenericPages/Contact';
+
+
 
 class NewContact extends Component {
 
@@ -8,9 +11,9 @@ class NewContact extends Component {
 
 
     return (
-      <div>
-      testtstst
-      </div>
+      <AddContact title="Add contact" previousState="/">
+        <ContactForm />
+      </AddContact>
 
     );
   }

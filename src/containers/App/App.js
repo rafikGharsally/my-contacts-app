@@ -23,7 +23,6 @@ class App extends Component {
       <div>
         <Sidebar/>
         <Grid  container className="App" justify="center" style={fullHeight}>
-
           <Grid item xs={12} md={8} lg={6} style={fullHeight}>
             <Switch>
               <Route exact path="/" component={ContactsList} />
