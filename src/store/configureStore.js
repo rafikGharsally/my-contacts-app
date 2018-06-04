@@ -6,7 +6,7 @@ import axiosMiddleware from 'redux-axios-middleware';
 import thunk from 'redux-thunk';
 import rootReducer from '../reducers'
 
-const createReduxStore = () => {
+export default function createReduxStore() {
   // add a browser history
   const history = createHistory();
 
@@ -18,6 +18,7 @@ const createReduxStore = () => {
   const clientOptions = {
     returnRejectedPromiseOnError: true,
     errorSuffix: '_ERROR',
+    successSuffix: '_SUCCESS'
   };
 
   // Add the reducer to your store on the `router` key
@@ -42,5 +43,3 @@ const createReduxStore = () => {
 
   return store;
 };
-
-export default createReduxStore;
