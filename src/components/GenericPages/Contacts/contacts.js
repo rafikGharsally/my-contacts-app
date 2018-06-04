@@ -8,7 +8,7 @@ class contacts extends Component {
 
   return (
     <div>
-      <table style={{width: '80%'}}>
+      <table style={{width: '100%'}}>
         <thead>
           <tr>
             <th>#</th>
