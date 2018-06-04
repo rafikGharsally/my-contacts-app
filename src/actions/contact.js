@@ -14,6 +14,9 @@ const editContact = () => { return { type: types.EDIT_CONTACT } };
 const editContactSuccess = data => { return { type: types.EDIT_CONTACT_SUCCESS, payload: data } };
 const editContactError = error => { return { type: types.EDIT_CONTACT_ERROR, error } };
 
+const deletingContact = () => { return { type: types.DELETE_CONTACT } };
+const deleteContactSuccess = data => { return { type: types.DELETE_CONTACT_SUCCESS, payload: data } };
+const deleteContactError = error => { return { type: types.DELETE_CONTACT_ERROR, error } };
 
 
 
@@ -66,6 +69,24 @@ export const getContact = id => {
         }, error => {
           console.log('error in getContact action:', error);
           dispatch(fetchContactError(error));
+          reject(error);
+        });
+    })
+  }
+};
+
+
+export const deleteContact = id => {
+  return function(dispatch) {
+    return new Promise((resolve, reject) => {
+      dispatch(deletingContact());
+      axios.delete(`/api/contacts/${id}` )
+        .then(success => {
+          dispatch(deleteContactSuccess(success.data));
+          resolve(success.data);
+        }, error => {
+          console.log('error in delete action:', error);
+          dispatch(deleteContactError(error));
           reject(error);
         });
     })
