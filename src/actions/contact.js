@@ -36,11 +36,12 @@ export const addNewContact = contact => {
 };
 
 
+
 export const modifyContact = contact => {
   return function(dispatch) {
     return new Promise((resolve, reject) => {
       dispatch(editContact());
-      axios.put(`/api/contacts/${id}`, contact )
+      axios.put(`/api/contacts/${contact.id}`, contact )
         .then(success => {
           dispatch(editContactSuccess(success.data));
           resolve(success.data);
