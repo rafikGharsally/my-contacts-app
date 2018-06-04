@@ -21,6 +21,12 @@ export default function contacts(state = {
         error: false,
         isFetching: false
       };
+    case types.FETCH_CONTACTS_ERROR:
+      return {
+        ...state,
+        error: true,
+        data: null
+      };
     default:
       return state;
   }
