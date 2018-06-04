@@ -14,7 +14,6 @@ const StyledAddContainer = styled.div`
   padding: 16px;
 `;
 
-
 const styles = theme => ({
   root: {
     display: 'flex',
