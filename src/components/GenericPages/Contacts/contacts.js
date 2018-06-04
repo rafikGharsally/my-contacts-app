@@ -44,7 +44,7 @@ class contacts extends Component {
                 <Button size="small" variant="contained" className={classes.button} href={`/edit/${n.id}`}>
                   edit
                 </Button>
-                <Button variant="contained" color="secondary" className={classes.button} href={`/edit/${n.id}`}>
+                <Button variant="contained" color="secondary" className={classes.button} href={`/delete/${n.id}`}>
                   delete
                 </Button>
 
