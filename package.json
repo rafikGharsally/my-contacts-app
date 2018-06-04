@@ -10,6 +10,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "history": "^4.7.2",
+    "material-ui": "^0.20.1",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
     "react-redux": "^5.0.7",
@@ -20,7 +21,7 @@
     "redux-axios-middleware": "^4.0.0",
     "redux-devtools-extension": "^2.13.2",
     "redux-thunk": "^2.3.0",
-    "styled-components": "^3.3.0"
+    "styled-components": "^3.3.2"
   },
   "scripts": {
     "client": "react-scripts start",
@@ -29,7 +30,6 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "start": "concurrently \"npm run server\" \"npm run client\""
-
   },
   "devDependencies": {
     "concurrently": "^3.5.1"
