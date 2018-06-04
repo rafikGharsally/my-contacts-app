@@ -109,6 +109,16 @@ class ContactForm extends Component {
           margin="normal"
           onChange={this.handleTextFieldChange}
         />
+        <TextField
+          id="email"
+          label="email"
+          name="email"
+          fullWidth
+          value={contact.email}
+          required
+          margin="normal"
+          onChange={this.handleTextFieldChange}
+        />
         <StyledButtonContainer>
           <Button type="submit" variant="contained" color="primary" className={classes.button}>
             Save
