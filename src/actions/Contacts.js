@@ -1,9 +1,28 @@
 import * as types from '../constants/types';
 import { get } from "axios";
 
-export function fetchContacts() {
+function fetching() {
+  return { type: types.FETCHING_CONTACTS };
+}
 
-  get('/api/contacts').then((response) => {
-    console.log('response',response);
-  });
+function fetchingError(error) {
+  return { type: types.FETCH_CONTACTS_ERROR, error: error };
+}
+
+function fetched(contacts) {
+  return { type: types.FETCH_CONTACTS_SUCCESS, payload: contacts };
+}
+
+function getContacts() {
+  return get('/api/contacts');
+}
+
+export function fetchContacts() {
+  return function (dispatch) {
+    dispatch(fetching());
+    return getContacts().then(
+      response => dispatch(fetched(response.data.contacts)),
+      error => dispatch(fetchingError(error.data))
+    )
+  }
 }
