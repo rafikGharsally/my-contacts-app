@@ -10,16 +10,17 @@ class ContactList extends Component {
    this.props.fetchContacts();
   }
 
-
   render() {
     const { contacts } = this.props;
 
-    const notFound = !contacts ||  !contacts.data ||  contacts.data.length < 0;
+    const found = contacts && contacts.data && contacts.data.length > 0;
     return (
       <div className="contacts">
+        { !found &&
+        <h3>No contacts to display...</h3>
+        }
+        {found &&
           <GenericContacts contacts={contacts} />
-        { notFound &&
-          <h3>no contacts to display...</h3>
         }
       </div>
 
