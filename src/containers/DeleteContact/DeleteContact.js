@@ -14,7 +14,6 @@ class DeleteContact extends Component {
 
   submitDelete(contact) {
 
-    console.log('c',contact);
     const { deleteContact, history, match: { params } } = this.props;
     deleteContact(params.id).then(success => {
       console.log('success contact updated---', success);
@@ -33,7 +32,7 @@ class DeleteContact extends Component {
 
     return (
 
-      <div >
+      <div>
         <DeleteFom
           submitDelete={this.submitDelete}
           cancel={this.cancel}
@@ -46,8 +45,8 @@ class DeleteContact extends Component {
 
 const mapStateToProps = state => {
   return {
-    isFetching: state.contact.isFetching,
-    contact: state.contact.data
+    // isFetching: state.contact.isFetching,
+    // contact: state.contact.data
   }
 };
 
