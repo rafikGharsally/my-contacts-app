@@ -1,16 +1,9 @@
 import React from 'react';
 import EditContact  from '../EditContact';
 import { shallow } from 'enzyme';
-import configureStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
-
 // Create the mock store
 import configureMockStore from 'redux-mock-store';
 const mockStore = configureMockStore();
-
-const store = configureStore([
-  thunk,
-])();
 
 describe('EditContact', () => {
   let wrapper, store;
@@ -34,4 +27,8 @@ describe('EditContact', () => {
     expect(wrapper.props().contact.isFetching).toBe(true);
     expect(wrapper.props().contact.error).toBe(false);
   });
+
 });
+
+
+
