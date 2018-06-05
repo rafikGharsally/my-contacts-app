@@ -32,7 +32,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "start": "concurrently \"npm run server\" \"npm run client\""
+    "postinstall" : "cd api && rimraf node_modules && yarn",
+    "start":"concurrently \"npm run server\" \"npm run client\""
   },
   "devDependencies": {
     "concurrently": "^3.5.1",
@@ -40,6 +41,7 @@
     "enzyme-adapter-react-16": "^1.1.1",
     "moxios": "^0.4.0",
     "react-test-renderer": "^16.4.0",
-    "redux-mock-store": "^1.5.1"
+    "redux-mock-store": "^1.5.1",
+    "rimraf": "^2.6.2"
   }
 }

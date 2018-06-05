@@ -61,9 +61,10 @@ function editContact(req, res) {
 
   jsonfile.readFile(file, function(err, obj) {
 
-    let index = _.findIndex(obj.contacts, function (el) {
-        return parseInt(el.id, 10) === parseInt(id, 10)
-      });
+    let index = obj.contacts.findIndex(function (el) {
+      return parseInt(el.id, 10) === parseInt(id, 10)
+    });
+
     obj.contacts.splice(index, 1, data);
 
     jsonfile.writeFile(file, obj,
