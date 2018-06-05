@@ -14,10 +14,10 @@ class ContactList extends Component {
   render() {
     const { contacts } = this.props;
 
-    const notFound = !contacts.data ||  contacts.data.length < 0;
+    const notFound = !contacts ||  !contacts.data ||  contacts.data.length < 0;
     return (
-      <div>
-        <GenericContacts contacts={contacts} />
+      <div className="unique">
+          <GenericContacts contacts={contacts} />
         { notFound &&
           <h3>no contacts to display...</h3>
         }
@@ -33,13 +33,11 @@ const mapDispatchToProps = dispatch => {
 
 
 const mapStateToProps = state => {
-  console.log('state---' ,state);
   return {
     contacts: state.contacts
   }
 };
 
 
-export default connect(
-  mapStateToProps, mapDispatchToProps)(ContactList);
+export default connect(mapStateToProps, mapDispatchToProps)(ContactList);
 
