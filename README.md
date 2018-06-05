@@ -13,3 +13,4 @@ then Open browser to localhost:3000
 please note that the app side was made only to make this application works...cheers
 
 In order to test this application, please run yarn test
+(End to End Testing coming soon provided by  [Cypress](https://www.cypress.io/))
