@@ -32,4 +32,5 @@ it('renders without crashing with a fake contact list', () => {
     <ContactList contacts={fakeContacts} store={store} />
   ).dive();
   expect(wrapper.length).toEqual(1);
+  expect(wrapper.find('.contacts').length).toBe(1);
 });
