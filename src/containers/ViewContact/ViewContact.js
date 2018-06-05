@@ -4,8 +4,7 @@ import { bindActionCreators } from 'redux';
 import { getContact, modifyContact } from '../../actions/contact';
 import { AddContact, ContactForm } from '../../components/GenericPages/Contact';
 
-
-class EditContact extends Component {
+class ViewContact extends Component {
 
   componentDidMount() {
     const { getContact, match: { params } } = this.props;
@@ -13,20 +12,17 @@ class EditContact extends Component {
   }
 
   render() {
+    const { contact }  = this.props;
 
-    const { contact, isFetching }  = this.props;
-
-    if (isFetching) {
+    if (contact.isFetching) {
       return (
         <div>loading ....</div>
       );
     }
-
     return (
-
       <AddContact title="View contact" previousState="/">
         <ContactForm
-          contact={contact}
+          contact={contact.data}
           viewMode
         />
       </AddContact>
@@ -37,8 +33,7 @@ class EditContact extends Component {
 
 const mapStateToProps = state => {
   return {
-    isFetching: state.contact.isFetching,
-    contact: state.contact.data
+    contact: state.contact
   }
 };
 
@@ -47,5 +42,5 @@ const mapDispatchToProps = dispatch => {
 };
 
 export default connect(
-  mapStateToProps, mapDispatchToProps)(EditContact);
+  mapStateToProps, mapDispatchToProps)(ViewContact);
 
