@@ -1,4 +1,4 @@
-import * as contactsAction from '../Contacts';
+import * as contactsAction from '../contacts';
 
 describe('contactsAction', () => {
 
