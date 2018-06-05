@@ -11,12 +11,7 @@ class EditContact extends Component {
     const { getContact, match: { params } } = this.props;
     getContact(params.id);
   }
-
-  constructor(props) {
-    super(props);
-  }
-
-
+  
   render() {
 
     const { contact, isFetching }  = this.props;
