@@ -82,12 +82,7 @@ function deleteContact(req, res) {
 
   let id = req.params.id;
   jsonfile.readFile(file, function(err, obj) {
-
-    var filtered = _.filter(obj.contacts, function(arrItem) {
-      return parseInt(arrItem.id, 10) !== parseInt(id, 10);
-    });
-
-    obj.contacts = filtered;
+    obj.contacts = obj.contacts.filter(arrItem => parseInt(arrItem.id, 10) !== parseInt(id, 10));
     jsonfile.writeFile(file, obj,
       function(success) {
         return res.json(obj);
@@ -95,8 +90,6 @@ function deleteContact(req, res) {
       function (err) {
         return res.json(500);
       });
-
-
 
   });
 
