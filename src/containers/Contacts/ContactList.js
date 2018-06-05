@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { fetchContacts } from '../../actions/Contacts';
+import { fetchContacts } from '../../actions/contacts';
 import { contacts as GenericContacts  } from '../../components/GenericPages/Contacts';
 
 class ContactList extends Component {
@@ -16,7 +16,7 @@ class ContactList extends Component {
 
     const notFound = !contacts ||  !contacts.data ||  contacts.data.length < 0;
     return (
-      <div className="unique">
+      <div className="contacts">
           <GenericContacts contacts={contacts} />
         { notFound &&
           <h3>no contacts to display...</h3>
