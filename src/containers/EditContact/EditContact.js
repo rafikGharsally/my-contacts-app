@@ -18,10 +18,7 @@ class EditContact extends Component {
   }
 
   submit(contact) {
-
-    console.log('c',contact);
     const { modifyContact, history } = this.props;
-
     modifyContact(contact).then(success => {
       console.log('success contact updated---', success);
       history.push('/');
@@ -64,6 +61,5 @@ const mapDispatchToProps = dispatch => {
   return bindActionCreators({ getContact, modifyContact }, dispatch);
 };
 
-export default connect(
-  mapStateToProps, mapDispatchToProps)(EditContact);
+export default connect(mapStateToProps, mapDispatchToProps)(EditContact);
 
