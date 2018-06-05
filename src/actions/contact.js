@@ -21,7 +21,6 @@ const deleteContactError = error => { return { type: types.DELETE_CONTACT_ERROR,
 
 
 export const addNewContact = contact => {
-  console.log('contact in action',contact);
   return function(dispatch) {
     return new Promise((resolve, reject) => {
       dispatch(addContact());
