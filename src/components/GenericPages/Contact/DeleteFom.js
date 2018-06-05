@@ -53,6 +53,7 @@ class DeleteForm extends React.Component {
           onRequestClose={this.closeModal}
           style={customStyles}
           contentLabel="Example Modal"
+          appElement={document.getElementById('root')}
         >
 
           <h2 ref={subtitle => this.subtitle = subtitle}>Are you sure ?</h2>
@@ -71,7 +72,7 @@ class DeleteForm extends React.Component {
 
 
 
-Modal.setAppElement('#root');
+// Modal.setAppElement('#root');
 
 
 export default DeleteForm;
