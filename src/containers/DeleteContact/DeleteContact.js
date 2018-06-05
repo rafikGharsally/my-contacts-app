@@ -12,7 +12,7 @@ class DeleteContact extends Component {
     this.cancel = this.cancel.bind(this);
   }
 
-  submitDelete(contact) {
+  submitDelete() {
 
     const { deleteContact, history, match: { params } } = this.props;
     deleteContact(params.id).then(success => {

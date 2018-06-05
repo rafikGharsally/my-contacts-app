@@ -14,9 +14,8 @@ const customStyles = {
 };
 class DeleteForm extends React.Component {
 
-  constructor() {
-    super();
-
+  constructor(props) {
+    super(props);
     this.state = {
       modalIsOpen: true
     };
