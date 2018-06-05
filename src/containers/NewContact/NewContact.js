@@ -13,20 +13,16 @@ class NewContact extends Component {
 
   submit(contact) {
 
-    console.log('c',contact);
     const { addNewContact, history } = this.props;
-
-   addNewContact(contact).then(success => {
-     console.log('!success added a new contact---', success)
+    addNewContact(contact).then(success => {
+     console.log('!success added a new contact---', success);
      history.push('/');
     }, error => {
-      console.log('error adding a new contact---', error)
+      console.log('error adding a new contact---', error);
     })
   }
 
   render() {
-
-
     return (
       <AddContact title="Add contact" previousState="/">
         <ContactForm submitForm={this.submit} />
@@ -38,7 +34,6 @@ class NewContact extends Component {
 
 const mapStateToProps = state => {
   return {
-    test:null
   }
 };
 

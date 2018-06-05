@@ -29,9 +29,9 @@ class EditContact extends Component {
 
   render() {
 
-    const { contact, isFetching }  = this.props;
+    const { contact }  = this.props;
 
-    if (isFetching) {
+    if (contact.isFetching) {
       return (
         <div>loading ....</div>
       );
@@ -41,7 +41,7 @@ class EditContact extends Component {
 
       <AddContact title="Edit contact" previousState="/">
         <ContactForm
-          contact={contact}
+          contact={contact.data}
           submitForm={this.submit}
         />
       </AddContact>
@@ -52,8 +52,7 @@ class EditContact extends Component {
 
 const mapStateToProps = state => {
   return {
-    isFetching: state.contact.isFetching,
-    contact: state.contact.data
+    contact: state.contact
   }
 };
 
