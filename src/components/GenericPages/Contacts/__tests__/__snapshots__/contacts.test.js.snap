@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Contacts test suit renders and matches our snapshot 1`] = `
+<contacts
+  contacts={
+    Object {
+      "data": Array [
+        Object {
+          "address": "1234 test test",
+          "email": "rafikgharsally@gmail.com",
+          "id": 1,
+          "job_title": "software engineer",
+          "name": "Rafik Gharsalli",
+          "phone": "5145891865",
+          "picture": "",
+        },
+      ],
+      "error": false,
+    }
+  }
+/>
+`;
