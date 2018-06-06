@@ -1,1 +1,86 @@
-{"contacts":[{"id":1,"name":"Rafik Gharsallisss","job_title":"test job","address":"1234 test test","picture":"","email":"rafikgharsally@gmail.com","phone":"5145891865"},{"id":2,"name":"Donald Trump","job_title":"Clown ","address":"2100 crescent","picture":"","email":"donaldDumb@gmail.com","phone":"911"},{"id":3,"name":"Justin Trudeau","job_title":"test3","address":"1222 nhdbhdbhjbd","picture":"","email":"justinAwesome@gmail.com","phone":"514 111 1234"},{"id":4,"name":"Vladimir Poutine","job_title":"test4","address":"1200 tetere","picture":"","email":"Vladimir Poutine@gmail.com","phone":"514 111 1234"}]}
+{
+  "contacts": [
+    {
+    "id": 1,
+    "name": "Rafik Gharsally",
+    "job_title": "Software Developer",
+    "address": "3210 Forest hill",
+    "picture": "",
+    "email": "rafikgharsally@gmail.com",
+    "phone": "5145891865"
+  }, {
+    "id": 2,
+    "name": "Donald Trump",
+    "job_title": "Clown",
+    "address": "White House, DC",
+    "picture": "+1 202-456-1111",
+    "email": "donaldDumb@gmail.com",
+    "phone": "911"
+  }, {
+    "id": 3,
+    "name": "Justin Trudeau",
+    "job_title": "Prime Minister",
+    "address": "1 Sussex Drive",
+    "picture": "",
+    "email": "justinAwesome@gmail.com",
+    "phone": "514 111 1234"
+  }, {
+    "id": 4,
+    "name": "Vladimir Poutine",
+    "job_title": "President",
+    "address":"Palace on the Idokopas",
+    "picture": "",
+    "email": "Vladimir Poutine@gmail.com",
+    "phone": "514 111 1234"
+  }, {
+    "id": 5,
+    "name": "Emmanuel Macron",
+    "job_title": "President",
+    "address":"Élysée Palace, Paris, France",
+    "picture": "",
+    "email": "Emmanuel@gmail.com",
+    "phone": "33 111 1234"
+  }, {
+    "id": 6,
+    "name": "Angela Merkel",
+    "job_title": "Chancellor of Germany",
+    "address":"Berlin",
+    "picture": "",
+    "email": "Angela@gmail.com",
+    "phone": "1234"
+  }, {
+    "id": 7,
+    "name": "Theresa May",
+    "job_title": "Prime Minister",
+    "address":"London",
+    "picture": "",
+    "email": "Theresa@gmail.com",
+    "phone": "1245"
+  }, {
+    "id": 8,
+    "name": "Mauricio Macri",
+    "job_title": "President",
+    "address":"Argentina",
+    "picture": "",
+    "email": "Mauricio@gmail.com",
+    "phone": "111"
+  }, {
+    "id": 9,
+    "name": "Malcolm Turnbull",
+    "job_title": "PM",
+    "address":"Sydney",
+    "picture": "",
+    "email": "Malcolm@gmail.com",
+    "phone": "4444"
+  }, {
+    "id": 10,
+    "name": "Sergio Mattarella",
+    "job_title": "President",
+    "address":"Italy",
+    "picture": "",
+    "email": "Sergio@gmail.com",
+    "phone": "5555"
+  }
+
+  ]
+}
