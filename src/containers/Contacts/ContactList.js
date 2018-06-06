@@ -7,13 +7,17 @@ import { contacts as GenericContacts  } from '../../components/GenericPages/Cont
 class ContactList extends Component {
 
   componentDidMount() {
-   this.props.fetchContacts();
-  }
+
+    this.props.fetchContacts();
+    return new Promise(() => {
+      this.props.fetchContacts();
+    });
+    }
 
   render() {
     const { contacts } = this.props;
-
     const found = contacts && contacts.data && contacts.data.length > 0;
+
     return (
       <div className="contacts">
         { !found &&
