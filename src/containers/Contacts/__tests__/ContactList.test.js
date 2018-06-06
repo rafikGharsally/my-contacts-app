@@ -6,6 +6,8 @@ import thunk from 'redux-thunk';
 import renderer from "react-test-renderer";
 import { MemoryRouter as Router } from 'react-router-dom';
 
+// spy(ContactList.prototype, 'componentDidMount');
+
 describe('Contacts', () => {
   const store = configureStore([
     thunk,
@@ -21,13 +23,16 @@ describe('Contacts', () => {
         "email": "rafikgharsally@gmail.com",
         "phone": "5145891865"
       }
-    ]};
+    ],
+    error:false
+  };
 
   it('renders without crashing', () => {
     const wrapper = shallow(
-      <ContactList contacts={null} store={store} />
+      <ContactList contacts={fakeContacts} store={store} />
     ).dive();
-    expect(wrapper.length).toEqual(1);
+    wrapper.instance().componentDidMount();
+    wrapper.update();
   });
 
   it('renders without crashing with a fake contact list', () => {
@@ -44,4 +49,5 @@ describe('Contacts', () => {
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
   });
+
 });
